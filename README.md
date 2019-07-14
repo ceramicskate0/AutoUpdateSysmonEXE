@@ -4,8 +4,9 @@ How to use:
 - Compile and run your own. 
 - Run AutoUpdateSysmonEXE.exe as a scheduled task (as LOCAL ADMIN) per sysmon guidance.
 
-- Flagged by AV? Here why:
-"            Wclient.DownloadFile(@"https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml",    @"C:\Windows\sysmonconfig-export.xml");
+- Flagged by AV? Here's why:
+"            
+            Wclient.DownloadFile(@"https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml",    @"C:\Windows\sysmonconfig-export.xml");
 
             ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Windows\Sysmon.exe", @"-c C:\Windows\sysmonconfig-export.xml");
             
