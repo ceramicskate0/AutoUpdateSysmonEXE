@@ -5,7 +5,7 @@
 - Run AutoUpdateSysmonEXE.exe as a scheduled task (as LOCAL ADMIN) per sysmon guidance.
 
 ## Flagged by AV? Here's why:
-"            
+           
 
             Wclient.DownloadFile(@"https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml",    @"C:\Windows\sysmonconfig-export.xml");
             
@@ -28,7 +28,8 @@
             process.StartInfo = startInfo;
             
             process.Start();
-            "
             
             
 In short its because im downloading a file to C:\Windows by default (sysmon default install location) and the starting a program that calls it.
+
+Feel free to replace the URL to your favorite or your own config. Same with the sysmon location.
