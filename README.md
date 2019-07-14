@@ -6,8 +6,9 @@ How to use:
 
 - Flagged by AV? Here's why:
 "            
-            Wclient.DownloadFile(@"https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml",    @"C:\Windows\sysmonconfig-export.xml");
 
+            Wclient.DownloadFile(@"https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml",    @"C:\Windows\sysmonconfig-export.xml");
+            
             ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Windows\Sysmon.exe", @"-c C:\Windows\sysmonconfig-export.xml");
             
             startInfo.WorkingDirectory = Path.GetDirectoryName(@"C:\Windows\");
