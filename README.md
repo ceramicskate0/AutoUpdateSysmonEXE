@@ -4,6 +4,15 @@
 - Compile and run your own. 
 - Run AutoUpdateSysmonEXE.exe as a scheduled task (as LOCAL ADMIN) per sysmon guidance.
 
+## How to Run:
+
+
+           Args must be in this fomat:
+           
+           AutoUpdateSysmon.exe 'URL of Sysmon Config' 'Host Computer File Path of Sysmon xml file'
+           
+           Example: ./AutoUpdateSysmon.exe 'https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-      export.xml' 'C:\Windows\sysmonconfig-export.xml'
+
 ## Flagged by AV? Here's why:
            
 
