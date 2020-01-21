@@ -11,7 +11,8 @@
            
            AutoUpdateSysmon.exe 'URL of Sysmon Config' 'Host Computer File Path of Sysmon xml file'
            
-           Example: ./AutoUpdateSysmon.exe 'https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-      export.xml' 'C:\Windows\sysmonconfig-export.xml'
+           Example: ./AutoUpdateSysmon.exe 'https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-  
+           export.xml' 'C:\Windows\sysmonconfig-export.xml'
 
 ## Flagged by AV? Here's why:
            
