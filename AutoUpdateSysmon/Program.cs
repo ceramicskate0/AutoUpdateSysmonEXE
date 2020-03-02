@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AutoUpdateSysmon
@@ -34,24 +35,24 @@ namespace AutoUpdateSysmon
                     else
                     {
                         RunUpdate(args[0], args[1]);
+                        Console.WriteLine("[*] Update Status: Complete no issues.");
                     }
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("App ERROR: Error == " + e.Message.ToString());
+                Console.WriteLine("[!] App ERROR: Error: " + e.Message.ToString());
                 try
                 {
                     RunUpdate();
                 }
-                catch
+                catch(Exception r)
                 {
+                    Console.WriteLine("[!] Update Status: " + r.Message.ToString());
                     Environment.Exit(1);
                 }
             }
-
-
-
+            Thread.Sleep(3000);
         }
         private static void RunUpdate(string URL= @"https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml", string HostLocation= @"C:\Windows\sysmonconfig-export.xml")
         {
@@ -66,6 +67,8 @@ namespace AutoUpdateSysmon
             Process process = new Process();
             process.StartInfo = startInfo;
             process.Start();
+            string output = process.StandardOutput.ReadToEnd();
+            Console.WriteLine("[*] Process Output:" + output);
         }
     }
     internal class CustomWebClient : WebClient
