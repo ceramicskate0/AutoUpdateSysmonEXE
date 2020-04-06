@@ -1,7 +1,0 @@
-C:\Users\Host\source\repos\AutoUpdateSysmon\AutoUpdateSysmon\obj\Debug\AutoUpdateSysmon.csprojResolveAssemblyReference.cache
-C:\Users\Host\source\repos\AutoUpdateSysmon\AutoUpdateSysmon\obj\Debug\AutoUpdateSysmon.csproj.CoreCompileInputs.cache
-C:\Users\Host\source\repos\AutoUpdateSysmon\AutoUpdateSysmon\bin\Debug\AutoUpdateSysmon.exe.config
-C:\Users\Host\source\repos\AutoUpdateSysmon\AutoUpdateSysmon\bin\Debug\AutoUpdateSysmon.exe
-C:\Users\Host\source\repos\AutoUpdateSysmon\AutoUpdateSysmon\bin\Debug\AutoUpdateSysmon.pdb
-C:\Users\Host\source\repos\AutoUpdateSysmon\AutoUpdateSysmon\obj\Debug\AutoUpdateSysmon.exe
-C:\Users\Host\source\repos\AutoUpdateSysmon\AutoUpdateSysmon\obj\Debug\AutoUpdateSysmon.pdb
