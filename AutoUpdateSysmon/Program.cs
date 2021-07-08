@@ -64,7 +64,7 @@ namespace AutoUpdateSysmon
         private static void RunUpdate(string URL= @"https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml", string HostLocation= @"C:\Windows\sysmonconfig-export.xml")
         {
             Wclient.DownloadFile(URL, HostLocation);
-            ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Windows\Sysmon.exe", @"-c C:\Windows\sysmonconfig-export.xml");
+            ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Windows\Sysmon.exe", @"-c "+HostLocation);
             startInfo.WorkingDirectory = Path.GetDirectoryName(@"C:\Windows\");
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
