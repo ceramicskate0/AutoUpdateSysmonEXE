@@ -23,6 +23,7 @@ namespace AutoUpdateSysmon
                 {
                     if (args.Length <= 0)
                     {
+                        Console.WriteLine("[*] Running with be built default config.");
                         RunUpdate();
                     }
                     else
@@ -33,7 +34,7 @@ namespace AutoUpdateSysmon
 
                                             AutoUpdateSysmon.exe 'URL of Sysmon Config' 'Host Computer File Path of Sysmon xml file'
 
-                                            Example: ./AutoUpdateSysmon.exe 'https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml' 'C:\Windows\sysmonconfig-export.xml'");
+                                            Example: ./AutoUpdateSysmon.exe https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml C:\Windows\sysmonconfig-export.xml");
                         }
                         else
                         {
@@ -63,19 +64,42 @@ namespace AutoUpdateSysmon
         }
         private static void RunUpdate(string URL= @"https://raw.githubusercontent.com/ceramicskate0/sysmon-config/master/sysmonconfig-export.xml", string HostLocation= @"C:\Windows\sysmonconfig-export.xml")
         {
-            Wclient.DownloadFile(URL, HostLocation);
-            ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Windows\Sysmon.exe", @"-c "+HostLocation);
-            startInfo.WorkingDirectory = Path.GetDirectoryName(@"C:\Windows\");
-            startInfo.RedirectStandardOutput = true;
-            startInfo.RedirectStandardError = true;
-            startInfo.LoadUserProfile = true;
-            startInfo.UseShellExecute = false;
-            startInfo.CreateNoWindow = true;
-            Process process = new Process();
-            process.StartInfo = startInfo;
-            process.Start();
-            string output = process.StandardOutput.ReadToEnd();
-            Console.WriteLine("[*] Process Output:" + output);
+            if (File.Exists(@"C:\Windows\Sysmon.exe"))
+            {
+                Wclient.DownloadFile(URL, HostLocation);
+                ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Windows\Sysmon.exe", @"-c " + HostLocation);
+                startInfo.WorkingDirectory = Path.GetDirectoryName(@"C:\Windows\");
+                startInfo.RedirectStandardOutput = true;
+                startInfo.RedirectStandardError = true;
+                startInfo.LoadUserProfile = true;
+                startInfo.UseShellExecute = false;
+                startInfo.CreateNoWindow = true;
+                Process process = new Process();
+                process.StartInfo = startInfo;
+                process.Start();
+                string output = process.StandardOutput.ReadToEnd();
+                Console.WriteLine("[*] Process Output:" + output);
+            }
+            else if (File.Exists(@"C:\Windows\Sysmon64.exe"))
+            {
+                Wclient.DownloadFile(URL, HostLocation);
+                ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Windows\Sysmon64.exe", @"-c " + HostLocation);
+                startInfo.WorkingDirectory = Path.GetDirectoryName(@"C:\Windows\");
+                startInfo.RedirectStandardOutput = true;
+                startInfo.RedirectStandardError = true;
+                startInfo.LoadUserProfile = true;
+                startInfo.UseShellExecute = false;
+                startInfo.CreateNoWindow = true;
+                Process process = new Process();
+                process.StartInfo = startInfo;
+                process.Start();
+                string output = process.StandardOutput.ReadToEnd();
+                Console.WriteLine("[*] Process Output:" + output);
+            }
+            else
+            {
+                Console.WriteLine("[!] App ERROR: Sysmon.exe and Sysmon64.exe not found in default location");
+            }
         }
 
         internal static bool IsUserAdministrator()
