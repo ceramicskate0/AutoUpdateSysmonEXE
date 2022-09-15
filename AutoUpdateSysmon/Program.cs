@@ -82,6 +82,7 @@ namespace AutoUpdateSysmon
             }
             else if (File.Exists(@"C:\Windows\Sysmon64.exe"))
             {
+                Console.WriteLine("[*] Sysmon64 found");
                 Wclient.DownloadFile(URL, HostLocation);
                 ProcessStartInfo startInfo = new ProcessStartInfo(@"C:\Windows\Sysmon64.exe", @"-c " + HostLocation);
                 startInfo.WorkingDirectory = Path.GetDirectoryName(@"C:\Windows\");
